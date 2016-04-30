@@ -35,6 +35,15 @@ module.exports = {
 
 		})
 
+	},
+	put: function(id, params, callback){
+		Team.findByIdandUpdate(id, params, {new:true}, function(err, team){
+			if(err){
+				callback(err, null)
+				return
+			}
+			callback(null, team)
+		})
 	}
 
 }

@@ -36,6 +36,18 @@ module.exports = {
 
 		})
 
+	},
+
+// takes 3 parameters - id: which one, params: what to update, callback
+
+	put: function(id, params, callback){
+		Profile.findByIdandUpdate(id, params, {new:true}, function(err, profile){
+			if(err){
+				callback(err, null)
+				return
+			}
+			callback(null, profile)
+		})
 	}
 
 }
